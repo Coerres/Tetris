@@ -75,18 +75,59 @@ namespace Tetris
                 for(int c = 0; c < grid.Columns; c++)
                 {
                     int id = grid[r, c];
+                    imageControls[r, c].Source = tilesImages[id];
                 }
             }
         }
 
+        private void DrawBlock(Block block)
+        {
+            foreach (Position p in block.TilePosition())
+            {
+                imageControls[p.Row, p.Column].Source = tilesImages[block.Id];
+            }
+        }
+
+        private void Draw(GameState gameState)
+        {
+            DrawGrid(gameState.GameGrid);
+            DrawBlock(gameState.CurrentBlock);
+        }
+
+
+
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            if (gameState.GameOver)
+            {
+                return;
+            }
 
+            switch (e.Key)
+            {
+                case Key.Left:
+                    gameState.MoveBlockLeft();
+                    break;
+                case Key.Right:
+                    gameState.MoveBlockRight();
+                    break;
+                case Key.Down:
+                    gameState.MoveBlockDown();
+                    break;
+                case Key.Up:
+                    gameState.RotateBlockCW();
+                    break;
+                case Key.Z:
+                    gameState.RotateBlockCCW();
+                    break;
+                default:
+                    return;
+            }
         }
 
         private void GameCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Draw(gameState);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

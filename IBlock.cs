@@ -1,4 +1,4 @@
-﻿namespace Tetris.Blocks
+﻿namespace Tetris
 {
     public class IBlock : Block //Add image to Github in folder
     {

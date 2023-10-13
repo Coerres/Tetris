@@ -1,4 +1,4 @@
-﻿namespace Tetris.Blocks
+﻿namespace Tetris
 {
     public class OBlock : Block
     {

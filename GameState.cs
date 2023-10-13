@@ -24,6 +24,8 @@ namespace Tetris
         {
             GameGrid = new GameGrid(22, 10);
             BlockQueue = new BlockQueue();
+
+            
             CurrentBlock = BlockQueue.GetAndUpdate();
         }
 

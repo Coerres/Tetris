@@ -1,6 +1,6 @@
 ﻿namespace Tetris
 {
-    public class IBlock : Block //Add image to Github in folder
+    public class IBlock : Block
     {
         private readonly Position[][] tiles = new Position[][]
         {

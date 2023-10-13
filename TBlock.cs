@@ -9,7 +9,7 @@ namespace Tetris
     public class TBlock : Block
     {
         public override int Id => 6;
-        
+
         protected override Position StartOffset => new(0, 3);
 
         protected override Position[][] Tiles => new Position[][] {
